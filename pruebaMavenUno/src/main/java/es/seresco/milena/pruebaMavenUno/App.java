@@ -29,5 +29,7 @@ public class App
         
         logger.info("Patata devuelve {}", devuelvePatata());
         
+        logger.info("Piloro devuelve {}", devuelvePiloro());
+        
     }
 }

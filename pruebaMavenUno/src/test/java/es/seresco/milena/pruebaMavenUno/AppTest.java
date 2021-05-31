@@ -25,4 +25,10 @@ public class AppTest
     	assertEquals("PATATA", App.devuelvePatata().toUpperCase());    	
     }
     
+    @Test
+    public void testDevuelvePiloro()
+    {    	    	
+    	assertEquals("PILORO", App.devuelvePiloro().toUpperCase());    	
+    }
+    
 }
