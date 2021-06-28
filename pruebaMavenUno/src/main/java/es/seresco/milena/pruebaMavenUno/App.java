@@ -18,7 +18,7 @@ public class App
 	
 	public static String devuelvePiloro()
 	{
-		return("Piloro");
+		return("Nariz");
 	}
 	
     public static void main( String[] args )
