@@ -35,9 +35,7 @@ public class AppPoiUno
 		{
 			logger.info("Inicio AppPoiUno");
 			
-			final XSSFWorkbook libro = new XSSFWorkbook();
-			
-			final FileOutputStream out = new FileOutputStream("c:/temp/curso.xlsx");	
+			final XSSFWorkbook libro = new XSSFWorkbook();	
 			//Creamos hoja de datos
 			XSSFSheet hojaDatos = libro.createSheet(WorkbookUtil.createSafeSheetName("Datos"));
 			
@@ -105,7 +103,7 @@ public class AppPoiUno
 			fila4.createCell(3).setCellValue(7);
 			fila4.createCell(4).setCellValue(21);			
 			
-			final XSSFRow fila5 = hojaDatos.createRow((short) 4);
+			final XSSFRow fila5 = hojaDatos.createRow((short) 5);
 			
 			fila5.createCell(0).setCellValue("Lorenzo");
 			fila5.createCell(1).setCellValue("Patatas");
@@ -113,7 +111,7 @@ public class AppPoiUno
 			fila5.createCell(3).setCellValue(7);
 			fila5.createCell(4).setCellValue(42);	
 			
-			final XSSFRow fila6 = hojaDatos.createRow((short) 5);
+			final XSSFRow fila6 = hojaDatos.createRow((short) 6);
 			
 			fila6.createCell(0).setCellValue("Fabala");
 			fila6.createCell(1).setCellValue("Mochuelos");
@@ -121,7 +119,7 @@ public class AppPoiUno
 			fila6.createCell(3).setCellValue(3);
 			fila6.createCell(4).setCellValue(12);	
 			
-			hojaDatos.setAutoFilter(new CellRangeAddress(0,0,0,5));
+			hojaDatos.setAutoFilter(new CellRangeAddress(0,0,0,4));
 			
 			//Creamos una hoja para la tabla dinámica.
 			final XSSFSheet hojaTablaDin = libro.createSheet(WorkbookUtil.createSafeSheetName("Tabla dinamica"));
@@ -158,7 +156,14 @@ public class AppPoiUno
 			//Por defecto no pone correctamentee el nombre del rowlabel ni el del colLabel. Los ponemos.
 			pivotTable.getCTPivotTableDefinition().setColHeaderCaption("Concepto");
 		    pivotTable.getCTPivotTableDefinition().setRowHeaderCaption("Nombre");
+		    
+		    //Podemos quitar las columnas de totales
+		    //pivotTable.getCTPivotTableDefinition().setColGrandTotals(false);
+		    //Podemos quitar las filas de totales
+		    //pivotTable.getCTPivotTableDefinition().setRowGrandTotals(false);
 			
+		    //Creamos e fichero donde guardar el libro excel.
+			final FileOutputStream out = new FileOutputStream("c:/temp/curso.xlsx");
 			//Grabamos.
 			libro.write(out);
 			out.close();
